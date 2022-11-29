@@ -2,10 +2,10 @@
 
 Student Fee Collection System is an application for collecting Student fees.
 
-The application is built on distributed microservices architecture. Below mentionioned microservices are involved.
+The application is built on distributed microservices architecture. Below mentioned microservices are involved.
 
 ## rb-student-service
-Student services to add new students and retrieve student details based on studendId.
+Student services to add new students and retrieve student details based on studentId.
 ### API:
 * POST - [/rakbank/api/student](/rakbank/api/student) (ADD STUDENT - check swagger for more details)
 * GET - [/rakbank/api/student/{studentId}](/rakbank/api/student/{studentId}) (GET STUDENT BY STUDENT_ID - check swagger for more details)
@@ -43,7 +43,7 @@ View Receipt Service is used to view receipt based of studentId or txnReferenceI
     
 Postman Collection and Swagger file can be found in current repo
 
-### END USER API'S:
+## END USER API'S:
 * POST - [/rakbank/api/student](/rakbank/api/student) (ADD STUDENT - add new students)
 * POST - [/rakbank/api/fee/collect](/rakbank/api/fee/collect) (COLLECT FEE - collect fee for a student)
 * GET - [/rakbank/api/receipt/student/{studentId}](/rakbank/api/receipt/student/{studentId}) (VIEW RECEIPT BY STUDENT_ID - view receipt based on studentId)
