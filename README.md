@@ -33,7 +33,7 @@ API:<br/>
 <h3>rb-view-reciept-service</h3>
     <p>View Receipt Service is used to view receipt based of studentId or txnReferenceId (receipt no)<br/>
 API:<br/>
-<li>POST - /rakbank/api/receipt/student/{studentId} (VIEW RECEIPT BY STUDENT_ID - check swagger for more details)</li>
+<li>GET - /rakbank/api/receipt/student/{studentId} (VIEW RECEIPT BY STUDENT_ID - check swagger for more details)</li>
 <li>GET - /rakbank/api/receipt/{referrenceId} (VIEW RECEIPT BY REFERENCE_ID - check swagger for more details)</li></p>
     Repository: <a href="https://github.com/getimran/rb-view-reciept-service">
                 https://github.com/getimran/rb-view-reciept-service</a><br/>
@@ -42,3 +42,8 @@ http://localhost:8084/rakbank/api/view-receipt/swagger-ui.html</a> <br/>
     Postman Collection can be found in current repo
     <br/>
 
+<h3>END USER API'S:</h3>
+<li>POST - /rakbank/api/student (ADD STUDENT - add new students)</li>
+<li>POST - /rakbank/api/fee/collect (COLLECT FEE - collect fee for a student)</li>
+<li>GET - /rakbank/api/receipt/student/{studentId} (VIEW RECEIPT BY STUDENT_ID - view receipt based on studentId)</li>
+<li>GET - /rakbank/api/receipt/{referrenceId} (VIEW RECEIPT BY REFERENCE_ID - view receipt based on referenceId)</li>

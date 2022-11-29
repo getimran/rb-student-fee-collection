@@ -1,0 +1,196 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Fee Collection Service Definition",
+    "description": "Microservice for collecting student fee and retrieving fee details based on fee referenceId and studentId",
+    "contact": {
+      "name": "Mohammad Imran",
+      "url": "https://www.linkedin.com/in/md-imran-02524a125/",
+      "email": "mailmeinfo.imran@gmail.com"
+    },
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8082",
+      "description": "Generated server url"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Fee Collection API",
+      "description": "API for collecting students fee and retrieve fee details based on fee referenceId and studentId"
+    }
+  ],
+  "paths": {
+    "/rakbank/api/fee/collect": {
+      "post": {
+        "tags": [
+          "Fee Collection API"
+        ],
+        "operationId": "collectFee",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FeeCollectionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeeCollectionResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/rakbank/api/fee/{referenceId}": {
+      "get": {
+        "tags": [
+          "Fee Collection API"
+        ],
+        "operationId": "findFeeDetailByReferenceId",
+        "parameters": [
+          {
+            "name": "referenceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeeDetail"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/rakbank/api/fee/student/{studentId}": {
+      "get": {
+        "tags": [
+          "Fee Collection API"
+        ],
+        "operationId": "findAllFeeDetailByStudentId",
+        "parameters": [
+          {
+            "name": "studentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FeeDetail"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "FeeCollectionRequest": {
+        "required": [
+          "cardNumber",
+          "cardType",
+          "feeAmount",
+          "studentId"
+        ],
+        "type": "object",
+        "properties": {
+          "studentId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "feeAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "cardNumber": {
+            "pattern": "^[0-9]*$",
+            "type": "string"
+          },
+          "cardType": {
+            "pattern": "^[A-Za-z ]*$",
+            "type": "string"
+          }
+        }
+      },
+      "FeeCollectionResponse": {
+        "type": "object",
+        "properties": {
+          "feeTxnReferenceId": {
+            "type": "string"
+          },
+          "studentId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "FeeDetail": {
+        "type": "object",
+        "properties": {
+          "feeTxnReferenceId": {
+            "type": "string"
+          },
+          "studentId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "feeAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "cardNumber": {
+            "type": "string"
+          },
+          "cardType": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    }
+  }
+}

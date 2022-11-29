@@ -1,0 +1,185 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "View Receipt Service Definition",
+    "description": "Microservice for viewing fee receipt of student",
+    "contact": {
+      "name": "Mohammad Imran",
+      "url": "https://www.linkedin.com/in/md-imran-02524a125/",
+      "email": "mailmeinfo.imran@gmail.com"
+    },
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8084",
+      "description": "Generated server url"
+    }
+  ],
+  "tags": [
+    {
+      "name": "View Receipt API",
+      "description": "API for for viewing fee receipt of student based on fee referenceId and studentId"
+    }
+  ],
+  "paths": {
+    "/rakbank/api/receipt/{referenceId}": {
+      "get": {
+        "tags": [
+          "View Receipt API"
+        ],
+        "operationId": "getReceiptByReferenceId",
+        "parameters": [
+          {
+            "name": "referenceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReferenceReceiptResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/rakbank/api/receipt/student/{studentId}": {
+      "get": {
+        "tags": [
+          "View Receipt API"
+        ],
+        "operationId": "getReceiptByStudentId",
+        "parameters": [
+          {
+            "name": "studentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudentReceiptResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ReferenceFeeReceipt": {
+        "type": "object",
+        "properties": {
+          "feeTxnReferenceId": {
+            "type": "string"
+          },
+          "studentId": {
+            "type": "string"
+          },
+          "feeAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "cardNumber": {
+            "type": "string"
+          },
+          "cardType": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "ReferenceReceiptResponse": {
+        "type": "object",
+        "properties": {
+          "student": {
+            "$ref": "#/components/schemas/StudentResponse"
+          },
+          "feeReceipt": {
+            "$ref": "#/components/schemas/ReferenceFeeReceipt"
+          }
+        }
+      },
+      "StudentResponse": {
+        "type": "object",
+        "properties": {
+          "studentId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "studentName": {
+            "type": "string"
+          },
+          "grade": {
+            "type": "string"
+          },
+          "schoolName": {
+            "type": "string"
+          },
+          "mobileNum": {
+            "type": "string"
+          }
+        }
+      },
+      "FeeReceiptResponse": {
+        "type": "object",
+        "properties": {
+          "feeTxnReferenceId": {
+            "type": "string"
+          },
+          "feeAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "cardNumber": {
+            "type": "string"
+          },
+          "cardType": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "StudentReceiptResponse": {
+        "type": "object",
+        "properties": {
+          "student": {
+            "$ref": "#/components/schemas/StudentResponse"
+          },
+          "feeReceipt": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FeeReceiptResponse"
+            }
+          }
+        }
+      }
+    }
+  }
+}

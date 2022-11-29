@@ -1,0 +1,137 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Student Service Definition",
+    "description": "Microservice for adding new Student and retrieving Student based on studentId",
+    "contact": {
+      "name": "Mohammad Imran",
+      "url": "https://www.linkedin.com/in/md-imran-02524a125/",
+      "email": "mailmeinfo.imran@gmail.com"
+    },
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080",
+      "description": "Generated server url"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Student API",
+      "description": "API for adding new Student and retrieving Student by studentId"
+    }
+  ],
+  "paths": {
+    "/rakbank/api/student": {
+      "post": {
+        "tags": [
+          "Student API"
+        ],
+        "operationId": "saveStudent",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StudentRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Student"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/rakbank/api/student/{studentId}": {
+      "get": {
+        "tags": [
+          "Student API"
+        ],
+        "operationId": "findByStudentId",
+        "parameters": [
+          {
+            "name": "studentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Student"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "StudentRequest": {
+        "required": [
+          "grade",
+          "schoolName",
+          "studentName"
+        ],
+        "type": "object",
+        "properties": {
+          "studentName": {
+            "pattern": "^[A-Za-z ]*$",
+            "type": "string"
+          },
+          "grade": {
+            "type": "string"
+          },
+          "schoolName": {
+            "type": "string"
+          },
+          "mobileNum": {
+            "pattern": "^[0][1-9]\\d{9}$|^[1-9]\\d{9}$",
+            "type": "string"
+          }
+        }
+      },
+      "Student": {
+        "type": "object",
+        "properties": {
+          "studentId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "studentName": {
+            "type": "string"
+          },
+          "grade": {
+            "type": "string"
+          },
+          "schoolName": {
+            "type": "string"
+          },
+          "mobileNum": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
