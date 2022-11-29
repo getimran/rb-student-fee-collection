@@ -13,7 +13,7 @@ API:<br/>
                 https://github.com/getimran/rb-student-service</a><br/>
     Local Swagger URL: <a href="http://localhost:8080/rakbank/api/student/swagger-ui.html">
                         http://localhost:8080/rakbank/api/student/swagger-ui.html</a><br/>
-    Postman Collection can be found in current repo
+    Postman Collection and Swagger file can be found in current repo
     <br/>
 
 <h3>rb-fee-collection-service </h3>
@@ -27,7 +27,7 @@ API:<br/>
  https://github.com/getimran/rb-fee-collection-service </a><br/>
     Local Swagger URL: <a href="http://localhost:8082/rakbank/api/fee-collect/swagger-ui.html">
                         http://localhost:8082/rakbank/api/fee-collect/swagger-ui.html</a> <br/>
-    Postman Collection can be found in current repo
+    Postman Collection and Swagger file can be found in current repo
     <br/>
 
 <h3>rb-view-reciept-service</h3>
@@ -39,7 +39,7 @@ API:<br/>
                 https://github.com/getimran/rb-view-reciept-service</a><br/>
     Local Swagger URL: <a href="http://localhost:8084/rakbank/api/view-receipt/swagger-ui.html">
 http://localhost:8084/rakbank/api/view-receipt/swagger-ui.html</a> <br/>
-    Postman Collection can be found in current repo
+    Postman Collection and Swagger file can be found in current repo
     <br/>
 
 <h3>END USER API'S:</h3>

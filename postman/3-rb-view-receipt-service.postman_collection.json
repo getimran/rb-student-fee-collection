@@ -1,0 +1,44 @@
+{
+	"variables": [],
+	"info": {
+		"name": "3-rb-view-receipt-service",
+		"_postman_id": "b6d70591-d038-66fa-a436-fc1bb3322d16",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Receipts By Student Id",
+			"request": {
+				"url": "http://localhost:8084/rakbank/api/receipt/student/1001",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Receipt By Reference Id",
+			"request": {
+				"url": "http://localhost:8084/rakbank/api/receipt/REF000001",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Health Endpoint",
+			"request": {
+				"url": "http://localhost:8084/actuator/health",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

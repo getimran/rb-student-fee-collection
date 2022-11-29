@@ -1,0 +1,71 @@
+{
+	"variables": [],
+	"info": {
+		"name": "2-rb-fee-collection-service",
+		"_postman_id": "96196814-08a5-013f-d2f1-684d7d5e8392",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Collect Fee",
+			"request": {
+				"url": "http://localhost:8082/rakbank/api/fee/collect",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"studentId\": \"1001\",\n\t\"feeAmount\": 11.06,\n\t\"cardNumber\": \"234578669091\",\n\t\"cardType\": \"MASTER\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Fee Details By Student Id",
+			"request": {
+				"url": "http://localhost:8082/rakbank/api/fee/student/1001",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Fee Detail By Reference Id",
+			"request": {
+				"url": "http://localhost:8082/rakbank/api/fee/REF000002",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

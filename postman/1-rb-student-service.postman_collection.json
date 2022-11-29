@@ -1,0 +1,51 @@
+{
+	"variables": [],
+	"info": {
+		"name": "1-rb-student-service",
+		"_postman_id": "4075cbf3-39e7-3a3e-834c-d48c0d9a9de6",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add Student",
+			"request": {
+				"url": "http://localhost:8080/rakbank/api/student",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"studentName\": \"Mohammad Imran Test\",\n\t\"grade\": \"5\",\n\t\"schoolName\": \"MGM School\",\n\t\"mobileNum\": \"9716041602\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Student By Id",
+			"request": {
+				"url": "http://localhost:8080/rakbank/api/student/1001",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"studentName\": \"Imran\",\n\t\"grade\": \"2\",\n\t\"schoolName\": \"MGM\",\n\t\"mobileNum\": \"9716041602\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
